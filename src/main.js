@@ -21,9 +21,10 @@ import { Product, ElectronicProduct, Article } from './classes/class.js'; //클�
 async function main() {
   try {
     const newProducts = await createProductInstances(); //ProductInstance.js 파일로 연결
-    console.log('최종 제품 인스턴스 생성 완료'); // , newProducts 넣어주면 인스턴스 한번더 출력
+    console.log('성공적으로 인스턴스화된 제품 목록:', newProducts); // , newProducts 넣어주면 인스턴스 한번더 출력
   } catch (error) {
     console.error('메인 실행 중 오류 발생:', error);
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -36,6 +37,7 @@ async function getNewArticleList(params) {
     console.log('게시물을 성공적으로 불러왔습니다:', getedArticle); //성공 확인 메세지
   } catch (error) {
     console.error('게시물을 불러오는 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -48,6 +50,7 @@ async function getNewArticle(id) {
     console.log('게시물을 성공적으로 불러왔습니다:', getedArticle); //성공 확인 메세지
   } catch (error) {
     console.error('게시물을 불러오는 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -66,6 +69,7 @@ async function addNewArticle() {
     console.log('게시물이 성공적으로 생성되었습니다:', createdArticle); //성공 확인 메세지
   } catch (error) {
     console.error('게시물 생성 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -84,6 +88,7 @@ async function patchNewArticle(id) {
     console.log('게시물이 성공적으로 수정되었습니다:', modifyedArticle); //성공 확인 메세지
   } catch (error) {
     console.error('게시물 수정 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -96,6 +101,7 @@ async function deleteNewArticle(id) {
     console.log('게시물을 성공적으로 삭제했습니다:', deltedArticle); //성공 확인 메세지
   } catch (error) {
     console.error('게시물을 삭제하는 중 오류 발생:', error.message); //실패 확인 메세지
+    // throw error; //id 10의 게시물이 없기 때문에 throw error를 넣으면 코드 진행이 끊김
   }
 }
 
@@ -110,6 +116,7 @@ async function getNewProductList(params) {
     console.log('제품을 성공적으로 불러왔습니다:', getedProduct); //성공 확인 메세지
   } catch (error) {
     console.error('제품을 불러오는 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -122,6 +129,7 @@ async function getNewProduct(id) {
     console.log('제품을 성공적으로 불러왔습니다:', getedProduct); //성공 확인 메세지
   } catch (error) {
     console.error('제품을 불러오는 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -142,6 +150,7 @@ async function addNewProduct() {
     console.log('제품이 성공적으로 생성되었습니다:', createdProduct); //성공 확인 메세지
   } catch (error) {
     console.error('제품 생성 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -162,6 +171,7 @@ async function patchNewProduct(id) {
     console.log('제품이 성공적으로 수정되었습니다:', modifyedProduct); //성공 확인 메세지
   } catch (error) {
     console.error('제품 수정 중 오류 발생:', error.message); //실패 확인 메세지
+    throw error; //오류를 다시 던져 상위 호출자에게 알립니다.
   }
 }
 
@@ -174,6 +184,7 @@ async function deleteNewProduct(id) {
     console.log('제품을 성공적으로 삭제했습니다:', deletedProduct); //성공 확인 메세지
   } catch (error) {
     console.error('제품을 삭제하는 중 오류 발생:', error.message); //실패 확인 메세지
+    //throw error; //id 10의 제품이 없기 때문에 throw error를 넣으면 코드 진행이 끊김
   }
 }
 
