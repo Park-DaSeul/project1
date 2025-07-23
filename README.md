@@ -1,4 +1,4 @@
-# **🚀 UZU API Client**
+# **🚀 UjU API Client**
 
 스프린트 미션2
 
